@@ -50,22 +50,24 @@ body {
 
 .header {
   color: white;
+  font-size: 2em;
   grid-row: 1;
   grid-column: 1 / -1;
   align-self: center;
   justify-self: start;
 }
 
-.textarea {
+.new-tweet-text {
   font-family: "Source Sans Pro", sans-serif;
   background-color: #c66a42;
   grid-row: 2;
   grid-column: 1 / -1;
-  border: none;
-  border-bottom: 5px #4056a1 solid;
+  border: 2px black solid;
+  /* border-bottom: 5px #4056a1 solid; */
+  padding: 1%;
 }
 
-.textarea:focus,
+.new-tweet-text:focus,
 input:focus {
   outline: none;
 }
@@ -85,4 +87,13 @@ input:focus {
   grid-column: 3;
   align-self: end;
   justify-self: end;
+}
+
+.counter-negative {
+  font-family: "Bungee", cursive;
+  grid-row: 3;
+  grid-column: 3;
+  align-self: end;
+  justify-self: end;
+  color: red;
 }
