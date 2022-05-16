@@ -30,6 +30,7 @@ body {
   /* background-color: #f4f1ec; */
   background-color: #d8c6c6;
   font-size: 24px;
+  margin-bottom: 2.5%;
 }
 
 /*
@@ -174,6 +175,11 @@ input:focus {
 .flex-icons {
   display: flex;
   gap: 10px;
+}
+
+.flex-icons i:hover {
+  cursor: pointer;
+  color: black;
 }
 
 .grid-icons {
