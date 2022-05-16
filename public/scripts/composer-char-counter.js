@@ -1,11 +1,8 @@
 $(document).ready(function () {
-  console.log("yes");
-  // --- our code goes here ---
   $(".new-tweet-text").on("input", function () {
     let maxLength = 140;
     let currentLength = $(this).val().length;
     let remainingCount = maxLength - currentLength;
-
     if (remainingCount >= 0) {
       $(".counter")
         .addClass("counter")
