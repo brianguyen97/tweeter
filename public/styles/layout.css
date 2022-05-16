@@ -113,7 +113,7 @@ input:focus {
   display: grid;
   margin-left: 5%;
   margin-right: 5%;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 0.5fr 0.5fr;
   grid-template-rows: 1fr 1.5fr 1fr;
   border: 5px #4056a1 solid;
   gap: 0.75em;
@@ -126,7 +126,7 @@ input:focus {
   display: grid;
   margin-left: 5%;
   margin-right: 5%;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 0.5fr 0.5fr;
   grid-template-rows: 1fr 1.5fr 1fr;
   border: 5px #4056a1 solid;
   gap: 0.75em;
