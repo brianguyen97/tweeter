@@ -69,20 +69,38 @@
     </header>
 
     <!-- Page-specific (main) content here -->
-    <section>
-      <form class="new-tweet-container" action="/tweets" method="post">
-        <label class="header" for="new-tweet-text"
-          >What are you humming about?</label
-        >
-        <textarea
-          class="new-tweet-text"
-          name="new-tweet-text"
-          id="new-tweet-text"
-        >
-        </textarea>
-        <button type="submit" class="tweet-button">Tweet</button>
-        <div class="counter">140</div>
-      </form>
-    </section>
+    <main>
+      <section>
+        <form class="new-tweet-container" action="/tweets" method="post">
+          <label class="header" for="new-tweet-text"
+            >What are you humming about?</label
+          >
+          <textarea class="new-tweet-text" name="new-tweet-text"> </textarea>
+          <button type="submit" class="tweet-button">Tweet</button>
+          <div class="counter">140</div>
+        </form>
+      </section>
+      <article class="tweets-container">
+        <img
+          src="https://pbs.twimg.com/media/Eu7r5_8WYA4ja56.jpg"
+          alt="profile-picture"
+          class="thumbnail"
+        />
+        <div class="user-fullname">Billie Eilish</div>
+        <div class="user-handle">@blohsh</div>
+        <div class="tweet-content">
+          Can't take it back once it's been set in motion You know I love to rub
+          it in like lotion If you only pray on Sunday, could you come my way?
+        </div>
+        <div class="time-stamp">10 days ago</div>
+        <div class="grid-icons">
+          <div class="flex-icons">
+            <i class="fa-solid fa-flag"></i>
+            <i class="fa-solid fa-retweet"></i>
+            <i class="fa-solid fa-heart"></i>
+          </div>
+        </div>
+      </article>
+    </main>
   </body>
 </html>
