@@ -1,0 +1,36 @@
+nav {
+  height: 120px;
+  background-color: #4056a1;
+  color: #ffffff;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+
+nav span {
+  font-family: "Bungee", cursive;
+  font-size: 1.65em;
+  margin-top: 0.9em;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.right-nav {
+  font-size: 1.1em;
+  position: relative;
+}
+
+#arrow {
+  position: absolute;
+  margin-left: 87px;
+  font-size: 24px;
+  color: red;
+}
+
+#write {
+  font-weight: bold;
+  display: inline;
+}
