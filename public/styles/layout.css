@@ -68,6 +68,7 @@ body {
   /* border: 2px black solid; */
   border: none;
   border-bottom: 0.3rem #4056a1 solid;
+  resize: none;
 }
 
 .new-tweet-text:focus,
