@@ -72,16 +72,27 @@
 
     <!-- Page-specific (main) content here -->
     <main>
+      <div class="errors-short">
+        <i class="fa-solid fa-circle-exclamation icon1"></i>
+        <div class="error-text">Tweet cannot be empty.</div>
+        <i class="fa-solid fa-circle-exclamation icon2"></i>
+      </div>
+      <div class="errors-long">
+        <i class="fa-solid fa-circle-exclamation icon1"></i>
+        <div class="error-text">Tweet cannot be more than 140 characters.</div>
+        <i class="fa-solid fa-circle-exclamation icon2"></i>
+      </div>
       <section>
-        <form class="new-tweet-container" action="/tweets" method="post">
-          <label class="header" for="new-tweet-text"
+        <form class="new-tweet-container" method="post" action="/tweets">
+          <label class="header" for="text"
             >What are you humming about?</label
           >
-          <textarea class="new-tweet-text" name="new-tweet-text"> </textarea>
+          <textarea class="new-tweet-text" name="text" id="text"> </textarea>
           <button type="submit" class="tweet-button">Tweet</button>
           <div class="counter">140</div>
         </form>
       </section>
+
 
       <div class="all-tweets">
       
