@@ -36,14 +36,27 @@ $(document).ready(function () {
     }
   };
 
-  $(".new-tweet-container").submit(function (e) {
+  $(".new-tweet-container").on("submit", function (e) {
     e.preventDefault();
+
     const data = $(this).serialize();
-    $.ajax({
-      type: "POST",
-      url: "/tweets",
-      data,
-    });
+    const data2 = $("#text").val();
+
+    if (data2.length === 1) {
+      alert("short");
+    } else if (data2.length > 140) {
+      alert("long");
+    } else {
+      $.ajax({
+        method: "POST",
+        url: "/tweets",
+        data,
+      }).then(function () {
+        $(".all-tweets").trigger("reset");
+        loadTweets();
+        $("#text").val("");
+      });
+    }
   });
 
   const loadTweets = function () {
