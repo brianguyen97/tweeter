@@ -3,8 +3,8 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-
 $(document).ready(function () {
+  // HTML Template for Tweets
   const createTweetElement = function (data) {
     let $tweet = $(`
       <article class="tweets-container">
@@ -29,6 +29,9 @@ $(document).ready(function () {
     return $tweet;
   };
 
+  // Helper Functions
+
+  // Pass in array as paraameter, prepends every element in our .all-tweets container
   const renderTweets = function (tweets) {
     for (let tweet of tweets) {
       const $tweet = createTweetElement(tweet);
@@ -36,29 +39,7 @@ $(document).ready(function () {
     }
   };
 
-  $(".new-tweet-container").on("submit", function (e) {
-    e.preventDefault();
-
-    const data = $(this).serialize();
-    const data2 = $("#text").val();
-
-    if (data2.length === 1) {
-      alert("short");
-    } else if (data2.length > 140) {
-      alert("long");
-    } else {
-      $.ajax({
-        method: "POST",
-        url: "/tweets",
-        data,
-      }).then(function () {
-        $(".all-tweets").trigger("reset");
-        loadTweets();
-        $("#text").val("");
-      });
-    }
-  });
-
+  // Makes a GET request to /tweets then uses our renderTweets function to load that data
   const loadTweets = function () {
     $.ajax({
       type: "GET",
@@ -72,6 +53,53 @@ $(document).ready(function () {
         console.log(e);
       });
   };
+
+  // Same functionality as loadTweets, but gets the latest tweet
+  const latestTweet = function () {
+    $.ajax({
+      type: "GET",
+      url: "/tweets",
+      dataType: "json",
+    })
+      .then(function (data) {
+        const tweet = data.slice(data.length - 1);
+        renderTweets(tweet);
+      })
+      .catch(function (e) {
+        console.log(e);
+      });
+  };
+
+  // Event listener to post textbox data to /tweets
+  $(".short-error").hide();
+  $(".long-error").hide();
+  $(".new-tweet-container").on("submit", function (e) {
+    e.preventDefault();
+    const data = $(this).serialize();
+    const data2 = $("#text").val();
+
+    if (data2.length === 1) {
+      $(".long-error").hide();
+      $(".short-error").slideDown("slow");
+    } else if (data2.length > 140) {
+      $(".short-error").hide();
+      $(".long-error").slideDown("slow");
+    } else {
+      $.ajax({
+        type: "POST",
+        url: "/tweets",
+        data,
+      })
+        .then(function () {
+          $(".all-tweets").trigger("reset");
+          latestTweet();
+          $("#text").val("");
+        })
+        .catch(function (e) {
+          console.log(e);
+        });
+    }
+  });
 
   loadTweets();
 });
