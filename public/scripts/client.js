@@ -15,7 +15,7 @@ $(document).ready(function () {
         />
         <div class="user-fullname">${data.user.name}</div>
         <div class="user-handle">${data.user.handle}</div>
-        <div class="tweet-content">${data.content.text}
+        <div class="tweet-content">${escape(data.content.text)}
         </div>
         <div class="time-stamp">${timeago.format(data.created_at)}</div>
         <div class="grid-icons">
@@ -30,6 +30,13 @@ $(document).ready(function () {
   };
 
   // Helper Functions
+
+  // Prevent XSS
+  const escape = function (data) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(data));
+    return div.innerHTML;
+  };
 
   // Pass in array as paraameter, prepends every element in our .all-tweets container
   const renderTweets = function (tweets) {
