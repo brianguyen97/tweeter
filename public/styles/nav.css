@@ -4,7 +4,7 @@
   height: 120px;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  color: #ffffff;
+  color: #fff;
   position: fixed;
   top: 0;
   width: 100%;

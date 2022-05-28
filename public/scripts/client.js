@@ -78,19 +78,19 @@ $(document).ready(function () {
   };
 
   // Event listener to post textbox data to /tweets
-  $(".short-error").hide();
-  $(".long-error").hide();
   $(".new-tweet-container").on("submit", function (e) {
     e.preventDefault();
     const data = $(this).serialize();
     const data2 = $("#text").val();
 
     if (data2.length === 1) {
-      $(".long-error").hide();
-      $(".short-error").slideDown("slow");
+      $(".error-container").html(
+        `<div class=short-error>Tweet cannot be empty.</div>`
+      );
     } else if (data2.length > 140) {
-      $(".short-error").hide();
-      $(".long-error").slideDown("slow");
+      $(".error-container").html(
+        `<div class=short-error>Tweet cannot be longer than 140 characters.</div>`
+      );
     } else {
       $.ajax({
         type: "POST",
