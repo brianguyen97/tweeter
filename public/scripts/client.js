@@ -108,5 +108,10 @@ $(document).ready(function () {
     }
   });
 
+  // Scroll to top of page event listener
+  $(".go-top").on("click", function (e) {
+    document.documentElement.scrollTop = 0;
+  });
+
   loadTweets();
 });
