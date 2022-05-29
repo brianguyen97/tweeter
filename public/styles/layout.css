@@ -28,15 +28,27 @@ body {
   background-image: url("https://www.transparenttextures.com/patterns/binding-light.png"); */
   font-family: "Source Sans Pro", sans-serif;
   color: #14171a;
-  /* background-color: #f4f1ec; */
-  background-color: #aab8c2;
+  background-color: #f4f1ec;
+  /* background-color: #aab8c2; */
   font-size: 24px;
   margin-bottom: 2.5%;
+}
+
+.header {
+  color: #14171a;
+  font-size: 1.5rem;
+  grid-row: 1;
+  grid-column: 1 / -1;
+  align-self: center;
+  justify-self: start;
+  font-weight: bold;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+/* Error Messages  */
 
 .short-error,
 .long-error {
@@ -51,9 +63,11 @@ body {
   font-weight: 600;
 }
 
+/* Creating New Tweet Styles */
+
 .new-tweet-container {
-  background-color: #aab8c2;
-  /* background-color: #f4f1ec; */
+  /* background-color: #aab8c2; */
+  background-color: #f4f1ec;
   display: grid;
   margin-left: 5%;
   margin-right: 5%;
@@ -63,25 +77,15 @@ body {
   gap: 5px;
 }
 
-.header {
-  color: #14171a;
-  font-size: 1.5rem;
-  grid-row: 1;
-  grid-column: 1 / -1;
-  align-self: center;
-  justify-self: start;
-  font-weight: bold;
-}
-
 .new-tweet-text {
   font-family: "Source Sans Pro", sans-serif;
-  background-color: #aab8c2;
-  /* background-color: #f4f1ec; */
+  /* background-color: #aab8c2; */
+  background-color: #f4f1ec;
   grid-row: 2;
   grid-column: 1 / -1;
   /* border: 2px black solid; */
   border: none;
-  border-bottom: 0.3rem #4056a1 solid;
+  border-bottom: 0.3rem #339af0 solid;
   resize: none;
   align-self: end;
 }
@@ -95,14 +99,17 @@ input:focus {
   grid-row: 3;
   grid-column: 1;
   font-family: "Bungee", cursive;
-  background-color: #4056a1;
+  background-color: #339af0;
   color: white;
   width: 6rem;
 }
 
 .tweet-button:hover {
   cursor: pointer;
+  background-color: #1c7ed6;
 }
+
+/* Tweet Character Counter */
 
 .counter {
   font-family: "Bungee", cursive;
@@ -125,28 +132,28 @@ input:focus {
 
 .tweets-container {
   margin-top: 1.1rem;
-  background-color: #aab8c2;
-  /* background-color: #f4f1ec; */
+  /* background-color: #aab8c2; */
+  background-color: #f4f1ec;
   display: grid;
   margin-left: 5%;
   margin-right: 5%;
   grid-template-columns: 2fr 0.5fr;
   grid-template-rows: 1fr 1.5fr 1fr;
-  border: 0.3rem #4056a1 solid;
+  border: 0.3rem #339af0 solid;
   gap: 0.6rem;
   padding: 1rem;
 }
 
 .tweets-container:hover {
   margin-top: 1.1rem;
-  background-color: #aab8c2;
-  /* background-color: #f4f1ec; */
+  /* background-color: #aab8c2; */
+  background-color: #f4f1ec;
   display: grid;
   margin-left: 5%;
   margin-right: 5%;
   grid-template-columns: 2fr 0.5fr;
   grid-template-rows: 1fr 1.5fr 1fr;
-  border: 0.3rem #4056a1 solid;
+  border: 0.3rem #339af0 solid;
   gap: 0.6rem;
   padding: 1rem;
   box-shadow: 0.5rem 0.25rem 0.25rem #1da1f2;
@@ -180,20 +187,25 @@ input:focus {
   grid-column: 1 / -1;
   align-self: end;
   border: none;
-  border-bottom: 3.5px #4056a1 solid;
+  border-bottom: 3.5px #339af0 solid;
 }
 
+/* Scroll to top button */
+
 .go-top {
-  display: inline-block;
   padding: 10px 20px;
   margin-left: 50%;
   margin-top: 2rem;
-  text-align: center;
-  transform: translate(-50%, 0);
   cursor: pointer;
   border-radius: 12px;
   border: none;
   border-radius: 50%;
+  margin-bottom: 2.5rem;
+  background-color: #339af0;
+}
+
+.go-top:hover {
+  background-color: #1c7ed6;
 }
 
 .up-icon {
@@ -225,6 +237,8 @@ input:focus {
   justify-self: right;
 }
 
+/* Media Queries */
+
 @media (min-width: 1024px) {
   .media-container {
     display: grid;
@@ -238,13 +252,14 @@ input:focus {
     margin-top: 250px;
   }
 
-  .short-error,
-  .long-error {
-    grid-column: 1;
-    margin-top: 12.5%;
-  }
-
   .navbar {
     z-index: 1;
+  }
+
+  .grid-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 10rem;
   }
 }
