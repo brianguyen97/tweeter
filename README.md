@@ -10,6 +10,7 @@ This is our main project for our front-end development section at Lighthouse Lab
 2. Install dependencies using the `npm install` command.
 3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
 4. Go to <http://localhost:8080/> in your browser.
+5. Click on the red arrow in the top right to get started tweeting!
 
 ## Dependencies
 
