@@ -77,24 +77,25 @@ $(document).ready(function () {
       });
   };
 
-  $(".short-error").hide();
-  $(".long-error").hide();
+  $(".new-tweet-container").one("focusin", function () {
+    $("#text").val("");
+  });
 
   // Event listener to post textbox data to /tweets
   $(".new-tweet-container").on("submit", function (e) {
     e.preventDefault();
     const data = $(this).serialize();
     const data2 = $("#text").val();
-    console.log(data);
+    console.log(data2.length);
 
-    if (data === "text=" || data === "text=%20") {
+    if (data2.length === 0) {
       if ($(".short-error").is(":hidden")) {
         $(".short-error").slideDown("slow");
       }
       if ($(".long-error").is(":visible")) {
         $(".long-error").slideUp("slow");
       }
-    } else if (data.slice(5).length > 140) {
+    } else if (data2.length > 140) {
       if ($(".short-error").is(":visible")) {
         $(".short-error").slideUp("slow");
       }
@@ -129,8 +130,17 @@ $(document).ready(function () {
     document.documentElement.scrollTop = 0;
   });
 
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 1) {
+      $(".go-top").fadeIn();
+    } else {
+      $(".go-top").fadeOut();
+    }
+  });
+
   $(".new-tweet-container").hide();
 
+  // Event Listener for new-tweet arrow
   $(".nav-arrow").on("click", function (e) {
     if ($(".new-tweet-container").is(":hidden")) {
       $(".new-tweet-container").slideDown("slow");
@@ -139,5 +149,10 @@ $(document).ready(function () {
     }
   });
 
+  // Initially Hide Errors
+  $(".short-error").hide();
+  $(".long-error").hide();
+
+  // Load tweets on load
   loadTweets();
 });
