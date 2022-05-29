@@ -77,20 +77,30 @@ $(document).ready(function () {
       });
   };
 
+  $(".short-error").hide();
+  $(".long-error").hide();
+
   // Event listener to post textbox data to /tweets
   $(".new-tweet-container").on("submit", function (e) {
     e.preventDefault();
     const data = $(this).serialize();
     const data2 = $("#text").val();
+    console.log(data);
 
-    if (data2.length === 1) {
-      $(".error-container").html(
-        `<div class=short-error>Tweet cannot be empty.</div>`
-      );
-    } else if (data2.length > 140) {
-      $(".error-container").html(
-        `<div class=short-error>Tweet cannot be longer than 140 characters.</div>`
-      );
+    if (data === "text=" || data === "text=%20") {
+      if ($(".short-error").is(":hidden")) {
+        $(".short-error").slideDown("slow");
+      }
+      if ($(".long-error").is(":visible")) {
+        $(".long-error").slideUp("slow");
+      }
+    } else if (data.slice(5).length > 140) {
+      if ($(".short-error").is(":visible")) {
+        $(".short-error").slideUp("slow");
+      }
+      if ($(".long-error").is(":hidden")) {
+        $(".long-error").slideDown("slow");
+      }
     } else {
       $.ajax({
         type: "POST",
@@ -101,6 +111,12 @@ $(document).ready(function () {
           $(".all-tweets").trigger("reset");
           latestTweet();
           $("#text").val("");
+          if ($(".short-error").is(":visible")) {
+            $(".short-error").slideUp("slow");
+          }
+          if ($(".long-error").is(":visible")) {
+            $(".long-error").slideUp("slow");
+          }
         })
         .catch(function (e) {
           console.log(e);
@@ -111,6 +127,16 @@ $(document).ready(function () {
   // Scroll to top of page event listener
   $(".go-top").on("click", function (e) {
     document.documentElement.scrollTop = 0;
+  });
+
+  $(".new-tweet-container").hide();
+
+  $(".nav-arrow").on("click", function (e) {
+    if ($(".new-tweet-container").is(":hidden")) {
+      $(".new-tweet-container").slideDown("slow");
+    } else {
+      $(".new-tweet-container").slideUp("slow");
+    }
   });
 
   loadTweets();

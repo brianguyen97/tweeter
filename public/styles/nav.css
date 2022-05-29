@@ -31,4 +31,5 @@
   grid-column: 3;
   justify-self: center;
   color: red;
+  cursor: pointer;
 }
